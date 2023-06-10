@@ -4,4 +4,5 @@
 
 // Enables Primary Systems
 void SystemEnablePrimary() {
+  InitAllPins();
 }
