@@ -4,3 +4,8 @@
 
 // System
 void InitAllPins();
+
+// Steppers
+void InitStepperWheel();
+void InitStepperHeight();
+void InitStepperPump();

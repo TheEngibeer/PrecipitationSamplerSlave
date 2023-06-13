@@ -19,11 +19,8 @@
 #include "../system/control.cpp"
 #include "../system/pinconfigs.cpp"
 
-/*
 // Components
-#include "../components/DS3231.cpp"
-#include "../components/HCSR04.cpp"
-#include "../components/Lid.cpp"
-#include "../components/SD-Card.cpp"
-#include "../components/SleepControl.cpp"
-*/
+#include "../components/Sampling.cpp"
+#include "../components/StepperHeight.cpp"
+#include "../components/StepperPump.cpp"
+#include "../components/StepperWheel.cpp"
