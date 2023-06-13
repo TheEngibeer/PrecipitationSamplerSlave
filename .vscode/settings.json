@@ -39,5 +39,6 @@
     },
     "C_Cpp.errorSquiggles": "disabled",
     "editor.fontSize": 12,
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "cmake.sourceDirectory": "C:/ArduinoProjects/PrecipitationSamplerSlave/include/Adafruit_BusIO"
 }
