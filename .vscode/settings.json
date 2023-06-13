@@ -1,3 +1,43 @@
 {
-    "C_Cpp.default.compilerPath": "cl.exe"
+    "arduino.defaultBaudRate": 115200,
+    "C_Cpp.intelliSenseEngine": "Tag Parser",
+    "files.associations": {
+        "array": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "vector": "cpp",
+        "xhash": "cpp",
+        "xstring": "cpp",
+        "xtree": "cpp",
+        "xutility": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "cstddef": "cpp",
+        "forward_list": "cpp",
+        "string_view": "cpp",
+        "compare": "cpp",
+        "functional": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "*.tcc": "cpp",
+        "random": "cpp",
+        "cstdarg": "cpp",
+        "istream": "cpp",
+        "xtr1common": "cpp",
+        "xmemory": "cpp",
+        "bit": "cpp",
+        "cstdlib": "cpp",
+        "algorithm": "cpp"
+    },
+    "search.exclude": {
+        // "**/Test/**": true,
+        "src/Arduino/out/**": true,
+        "**/LabVIEW/**": true,
+        "**/KiCad/**": true
+    },
+    "C_Cpp.errorSquiggles": "disabled",
+    "editor.fontSize": 12,
+    "cmake.configureOnOpen": true
 }
