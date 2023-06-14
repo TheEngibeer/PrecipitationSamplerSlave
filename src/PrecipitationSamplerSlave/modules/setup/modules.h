@@ -20,7 +20,9 @@
 #include "../system/pinconfigs.cpp"
 
 // Components
+// #include "../components/Heating.cpp"
 #include "../components/Sampling.cpp"
+#include "../components/StepperControl.cpp"
 #include "../components/StepperHeight.cpp"
 #include "../components/StepperPump.cpp"
 #include "../components/StepperWheel.cpp"

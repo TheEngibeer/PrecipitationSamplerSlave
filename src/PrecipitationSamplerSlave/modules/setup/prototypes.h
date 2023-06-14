@@ -2,33 +2,40 @@
 
 #include "./modules.h"
 
-// System
+// SYSTEM
 void InitAllPins();
 void GotoSleep();
 
-// Sampling
+// SAMPLING
 void SamplingProcess();
 void DoSampling();
 
-// Heating
+// HEATING
 void InitHeating();
 void HeatingProcess();
 void HeatingWait();
 
-// Steppers
+// Stepper Control
+uint8_t ZeroSteppers(uint8_t process);
+uint8_t SampleCycle(uint8_t process);
+
+// Wheel
 void InitStepperWheel();
-void InitStepperHeight();
-void InitStepperPump();
-
+void ReadWheelSwitches();
 void HeatStepper_Wheel();
-void HeatStepper_Pump();
-void HeatStepper_Height();
+uint8_t WheelGotoHome(uint8_t process);
+uint8_t WheelGotoSampling(uint8_t process);
+uint8_t WheelGotoPurge(uint8_t process);
 
-void HeightGotoClearing();
-void HeightGotoSampling();
+// Height
+void InitStepperHeight();
+void HeatStepper_Height();
+uint8_t HeightGotoClearing(uint8_t process);
+uint8_t HeightGotoSampling(uint8_t process);
 void ReadHeightSwitch();
 
-void WheelGotoHome();
-void ReadWheelSwitches();
-
-void PumpGotoSampling();
+// Pump
+void InitStepperPump();
+void HeatStepper_Pump();
+uint8_t PumpGotoSampling(uint8_t process);
+uint8_t PumpGotoPurge(uint8_t process);

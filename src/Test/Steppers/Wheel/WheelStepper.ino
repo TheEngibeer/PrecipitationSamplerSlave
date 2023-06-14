@@ -1,24 +1,47 @@
+
+
 #pragma once
 
 #include "../setup/modules.h"
 
+#define PO_WHEEL_STP    3    // Sample Wheel stepper-step signal
+#define WHEEL_MAX_SPEED 500  // Wheel MAX speed (Steps/s)
+#define WHEEL_ACC       100  // Wheel Acceleration (Steps/s^2)
+
+// Related components
+bool wheelSwitches[2];       // wheelswitch[1] = Upper (Sample) , wheelswitch[2] = Lower (Purge)
+uint8_t stepperProcess = 0;  // Process variable
+
 // Setup Wheel stepper
 AccelStepper Wheel(1, PO_WHEEL_STP, 0);
 
-// Related components
-bool wheelSwitches[2];  // wheelswitch[1] = Upper (Sample) , wheelswitch[2] = Lower (Purge)
-
-void InitStepperWheel() {
+void setup() {
   // Opsætning af Transportbånds Steppermotor
   Wheel.setPinsInverted(false, false, true);  // Invertere signalet
   Wheel.setMaxSpeed(WHEEL_MAX_SPEED);         // Max. hastighed    (steps/sek.)
   Wheel.setAcceleration(WHEEL_ACC);           // Max. acceleration (steps/sek.^2)
   Wheel.setCurrentPosition(0);
-  Wheel.disableOutputs();
 }
 
-void HeatStepper_Wheel() {
-  Wheel.enableOutputs();
+void loop() {
+  switch (stepperProcess) {
+    case 0:
+      stepperProcess = WheelGotoHome(stepperProcess);
+      break;
+    case 1:
+      stepperProcess = WheelGotoSampling(stepperProcess);
+      break;
+    case 2:
+      stepperProcess = WheelGotoPurge(stepperProcess);
+      break;
+    case 3:
+      stepperProcess = 1;
+      break;
+
+    default:
+      stepperProcess = 0;
+      break;
+  }
 }
 
 uint8_t WheelGotoHome(uint8_t process) {
@@ -40,6 +63,7 @@ uint8_t WheelGotoSampling(uint8_t process) {
   // Go to a Sampling hole
   if ((wheelSwitches[1] = HIGH) && (wheelSwitches[2] = LOW)) {
     process++;
+
   } else {
     Wheel.runSpeed();
   }

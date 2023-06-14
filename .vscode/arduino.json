@@ -1,5 +1,5 @@
 {
     "board": "arduino:avr:uno",
-    "programmer": "avrisp",
+    "programmer": "arduinoisp",
     "sketch": "src\\PrecipitationSamplerSlave\\PrecipitationSamplerSlave.ino"
 }

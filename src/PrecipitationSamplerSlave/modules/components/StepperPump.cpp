@@ -6,34 +6,35 @@
 AccelStepper Pump(1, PO_PUMP_STP);
 
 void InitStepperPump() {
-    // Opsætning af Transportbånds Steppermotor
-    Pump.setPinsInverted(false, false, true); // Inverts the "direction" pin
-    Pump.setMaxSpeed(300);                    // Max. hastighed    (steps/sek.)
-    Pump.setAcceleration(100);                // Max. acceleration (steps/sek.^2)
-    Height.setCurrentPosition(0);             // Set the start position to 0
-    Pump.disableOutputs();                    // Stepper is OFF on startup
+  // Opsætning af Transportbånds Steppermotor
+  Pump.setPinsInverted(false, false, true);  // Inverts the "direction" pin
+  Pump.setMaxSpeed(PUMP_MAX_SPEED);          // Max. hastighed    (steps/sek.)
+  Pump.setAcceleration(PUMP_ACC);            // Max. acceleration (steps/sek.^2)
+  Height.setCurrentPosition(0);              // Set the start position to 0
+  Pump.disableOutputs();                     // Stepper is OFF on startup
 }
 
 void HeatStepper_Pump() {
-    Pump.enableOutputs();
+  Pump.enableOutputs();
 }
 
-void PumpGotoSampling(uint8_t process) {
-    if (Pump.currentPosition() != 100) {
-        Pump.moveTo(100);
-        Pump.run();
-    } else {
-        Pump.setCurrentPosition(0);
-        return process + 1;
-    }
+uint8_t PumpGotoSampling(uint8_t process) {
+  if (Pump.currentPosition() != PUMP_SAMPLING_END) {
+    Pump.moveTo(PUMP_SAMPLING_END);
+    Pump.run();
+  } else {
+    Pump.setCurrentPosition(0);
+    return process + 1;
+  }
 }
 
-void PumpGotoPurge(int8_t process) {
-    if (Pump.currentPosition() != 5000) {
-        Pump.moveTo(5000);
-        Pump.run();
-    } else {
-        Pump.setCurrentPosition(0);
-        return process + 1;
-    }
+uint8_t PumpGotoPurge(uint8_t process) {
+  if (Pump.currentPosition() != PUMP_PURGE) {
+    Pump.moveTo(PUMP_PURGE);
+    Pump.run();
+  } else {
+    Pump.setCurrentPosition(0);
+    process++;
+  }
+  return process;
 }

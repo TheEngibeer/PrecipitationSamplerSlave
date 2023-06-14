@@ -3,7 +3,7 @@
 	"editor.fontSize": 12,
 	"cmake.configureOnOpen": true,
 	"cmake.sourceDirectory": "C:/ArduinoProjects/PrecipitationSamplerSlave/include/Adafruit_BusIO",
-	"C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: Never, IndentWidth: 4, TabWidth: 4, BreakBeforeBraces: Attach, AllowShortIfStatementsOnASingleLine: true, IndentCaseLabels: false, ColumnLimit: 0, AccessModifierOffset: -2 }",
+	
 	"arduino.defaultBaudRate": 115200,
 	"C_Cpp.intelliSenseEngine": "Tag Parser",
 	"AlignConsecutiveDeclarations": "True",
