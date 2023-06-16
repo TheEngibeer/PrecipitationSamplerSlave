@@ -1,0 +1,2 @@
+C:/ArduinoProjects/PrecipitationSamplerSlave/build/CMakeFiles/ALL_BUILD.dir
+C:/ArduinoProjects/PrecipitationSamplerSlave/build/CMakeFiles/ZERO_CHECK.dir

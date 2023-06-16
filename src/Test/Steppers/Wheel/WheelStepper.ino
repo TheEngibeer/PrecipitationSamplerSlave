@@ -16,6 +16,10 @@ uint8_t stepperProcess = 0;  // Process variable
 AccelStepper Wheel(1, PO_WHEEL_STP, 0);
 
 void setup() {
+  pinMode(PO_WHEEL_STP, OUTPUT);
+  pinMode(PI_SWTCH_UPPER, INPUT);
+  pinMode(PI_SWTCH_LOWER, INPUT);
+
   // Opsætning af Transportbånds Steppermotor
   Wheel.setPinsInverted(false, false, true);  // Invertere signalet
   Wheel.setMaxSpeed(WHEEL_MAX_SPEED);         // Max. hastighed    (steps/sek.)

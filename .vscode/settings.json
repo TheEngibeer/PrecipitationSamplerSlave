@@ -3,8 +3,6 @@
 	"editor.fontSize": 12,
 	"cmake.configureOnOpen": true,
 	"cmake.sourceDirectory": "C:/ArduinoProjects/PrecipitationSamplerSlave/include/Adafruit_BusIO",
-	
-	"arduino.defaultBaudRate": 115200,
 	"C_Cpp.intelliSenseEngine": "Tag Parser",
 	"AlignConsecutiveDeclarations": "True",
 	"files.associations": {

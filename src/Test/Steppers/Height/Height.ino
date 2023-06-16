@@ -17,6 +17,10 @@ uint8_t process   = 0;    // Process handling
 uint16_t moveDown = 200;  // Steps to move down
 
 void setup() {
+  pinMode(PO_HEIGHT_DIR, OUTPUT);
+  pinMode(PO_HEIGHT_STP, OUTPUT);
+  pinMode(PI_SWTCH_HEIGHT, INPUT);
+
   // Opsætning af Transportbånds Steppermotor
   Height.setPinsInverted(false, false, true);  // Invertere signalet
   Height.setMaxSpeed(300);                     // Max. hastighed    (steps/sek.)

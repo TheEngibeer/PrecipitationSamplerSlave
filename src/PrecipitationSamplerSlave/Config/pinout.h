@@ -34,14 +34,14 @@
 //                        Heat Elements                         //
 // ------------------------------------------------------------ //
 
-#define PO_HEAT_FUNNEL  8  // Output signal to turn on funnel heating
-#define PO_HEAT_PUMP    9  // Output signal to turn on pump heating
+#define PO_HEAT_FUNNEL  9   // Output signal to turn on funnel heating
+#define PO_HEAT_PUMP    10  // Output signal to turn on pump heating
 
 // ------------------------------------------------------------ //
 //                     Mechanical switches                      //
 // ------------------------------------------------------------ //
 
-#define PI_SWTCH_UPPER  10  // Sample wheel encoding switch (Sample hole)
+#define PI_SWTCH_UPPER  13  // Sample wheel encoding switch (Sample hole)
 #define PI_SWTCH_LOWER  11  // Sample wheel encoding switch (Flush hole)
 #define PI_SWTCH_HEIGHT 12  // Height limit switch
 
@@ -49,8 +49,8 @@
 //                      Temp. sensors                           //
 // ------------------------------------------------------------ //
 
-#define PA_TEMP_FUNNEL  14  // Limitswitch for "Lid Closed"
-#define PA_TEMP_PUMP    15
+#define PA_TEMP_FUNNEL  14  // Temperature sensor for the funnel
+#define PA_TEMP_PUMP    15  // Temperature sensor for the Pump
 
 // ------------------------------------------------------------ //
 //                         Load cells                           //

@@ -1,5 +1,6 @@
 {
     "board": "arduino:avr:uno",
     "programmer": "arduinoisp",
-    "sketch": "src\\PrecipitationSamplerSlave\\PrecipitationSamplerSlave.ino"
+    "sketch": "src\\Test\\Empty\\Empty.ino",
+    "port": "COM5"
 }
