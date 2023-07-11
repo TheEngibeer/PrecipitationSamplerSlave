@@ -1,6 +1,6 @@
 {
     "board": "arduino:avr:uno",
     "programmer": "arduinoisp",
-    "sketch": "src\\Test\\Empty\\Empty.ino",
+    "sketch": "src\\Test\\Steppers\\Steppers.ino",
     "port": "COM5"
 }

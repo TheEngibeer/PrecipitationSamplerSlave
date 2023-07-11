@@ -35,7 +35,7 @@
 // ------------------------------------------------------------ //
 
 #define PO_HEAT_FUNNEL  9   // Output signal to turn on funnel heating
-#define PO_HEAT_PUMP    10  // Output signal to turn on pump heating
+#define PO_HEAT_PUMP    10  // Output signal to turn on pump heating3
 
 // ------------------------------------------------------------ //
 //                     Mechanical switches                      //

@@ -1,9 +1,4 @@
 
-
-#pragma once
-
-#include "../setup/modules.h"
-
 #define PO_WHEEL_STP    3    // Sample Wheel stepper-step signal
 #define WHEEL_MAX_SPEED 500  // Wheel MAX speed (Steps/s)
 #define WHEEL_ACC       100  // Wheel Acceleration (Steps/s^2)

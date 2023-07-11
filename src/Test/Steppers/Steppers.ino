@@ -1,40 +1,42 @@
-// Quickstop.pde
-// -*- mode: C++ -*-
-//
-// Check stop handling.
-// Calls stop() while the stepper is travelling at full speed, causing
-// the stepper to stop as quickly as possible, within the constraints of the
-// current acceleration.
-//
-// Copyright (C) 2012 Mike McCauley
-// $Id:  $
-
-#define PO_PUMP_STP 6  // Pump stepper-step signal
-
 #include <AccelStepper.h>
 
-// Define a stepper and the pins it will use
-AccelStepper stepper(AccelStepper::FULL4WIRE, PO_PUMP_STP, -1, -1, -1, false);
+// Define pin connections & motor's steps per revolution
+const int dirPin        = 2;
+const int stepPinHeight = 6;
+const int stepPinPump   = 3;
+const int stepPinWheel  = 5;
+
+uint8_t process = 0;
+unsigned long lastMillis;
+
+AccelStepper stepperHeight(1, stepPinHeight, dirPin);  // (X, Y , Z)  X =
+AccelStepper stepperPump(1, stepPinPump, dirPin);      // (X, Y , Z)  X =
+AccelStepper stepperWheel(1, stepPinWheel, dirPin);    // (X, Y , Z)  X =
 
 void setup() {
-  Serial.begin(9600);
-  stepper.setMaxSpeed(2000);
-  stepper.setAcceleration(5000);
+  // Declare pins as Outputs
+  pinMode(stepPinHeight, OUTPUT);
+  pinMode(stepPinPump, OUTPUT);
+  pinMode(stepPinWheel, OUTPUT);
+
+  digitalWrite(8, LOW);
+
+  stepperHeight.setMaxSpeed(5000);
+  stepperHeight.setAcceleration(500);
+  stepperHeight.setPinsInverted(false, false, true);  // Invertere signalet
+  stepperPump.setMaxSpeed(5000);
+  stepperPump.setAcceleration(500);
+  stepperPump.setPinsInverted(false, false, true);  // Invertere signalet
+  stepperWheel.setMaxSpeed(5000);
+  stepperWheel.setAcceleration(500);
+  stepperWheel.setPinsInverted(false, false, true);  // Invertere signalet
+
+  stepperHeight.setSpeed(600);
+  stepperPump.setSpeed(400);
+  stepperWheel.setSpeed(100);
 }
-
 void loop() {
-  stepper.moveTo(500);
-  while (stepper.currentPosition() != 300)  // Full speed up to 300
-    stepper.run();
-  stepper.stop();  // Stop as fast as possible: sets new target
-  stepper.runToPosition();
-  // Now stopped after quickstop
-
-  // Now go backwards
-  stepper.moveTo(-500);
-  while (stepper.currentPosition() != 0)  // Full speed basck to 0
-    stepper.run();
-  stepper.stop();  // Stop as fast as possible: sets new target
-  stepper.runToPosition();
-  // Now stopped after quickstop
+  stepperHeight.runSpeed();
+  stepperPump.runSpeed();
+  stepperWheel.runSpeed();
 }
